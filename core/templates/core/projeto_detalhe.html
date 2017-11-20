@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+	<h1>Olá {{ avaliador.user.first_name }} {{avaliador.user.last_name}}!!!</h1>
+	
+	<h3>Esses são os projetos para você avaliar:</h3>
+	
+	<h2><a href="{% url 'projeto_avaliar' pk=avaliacao.pk %}">{{ projeto.nome }}<a/></h2>
+
+	<p>{{ projeto.resumo }}</p>
+
+	<p><a href="{% url 'projeto_avaliar' pk=avaliacao.pk %}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"> <b>Avaliar</b></span></a></p>
+
+	<div class='row'>
+		<div class='col-sm-6 col-sm-offset-3'>
+			<div class="table-responsive">
+			  	<table class="table">
+					<tr>
+						<th>Nota</th>
+						<th>Alunos s/ camisa</th>
+						<th>Estrelas</th>
+					</tr>
+					<tr>
+						<td>{{ nota }}</td>
+						<td>{{ alunos_sem_camisa }}</td>
+						<td>{{ estrelas }}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}

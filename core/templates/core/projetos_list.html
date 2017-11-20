@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+{% for projeto in projetos %}
+	<h1><a href="{% url 'projeto_detalhe' pk=projeto.pk %}">{{ projeto.nome }}</a></h1>
+	<a href="{% url 'projeto_detalhe' pk=projeto.pk %}" class="top-menu"><span class="glyphicon glyphicon-search"> <b>Detalhes</b></span></a></a>	
+	<p>{{ projeto.resumo }}</p>
+{% endfor %}
+
+{% endblock %}
